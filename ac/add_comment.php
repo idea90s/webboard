@@ -3,8 +3,6 @@ require_once('../db/db.php');
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-   print_r($_POST);
-
    $krathu_id = $_POST['krathu_id'];
    $details = $_POST['details'];
    $full_name = $_POST['full_name'];
@@ -12,7 +10,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
    $r = $c->addComment($krathu_id, $details, $full_name, $id_card);
    if ($r === true) {
-      header("Location: ../singleboard.php?krathuId=" . $krathu_id ."&success=1");
+      header("Location: ../singleboard.php?krathuId=" . $krathu_id . "&success=1");
       exit();
    } else {
       echo "มีข้อผิดพลาดเกิดขึ้นในการตอบกลับกระทู้";

@@ -1,7 +1,8 @@
 <?php
 require_once('./db/db.php');
-
 $krathus = $c->getAllKrathu();
+
+$sitekey = "6Lc88yUnAAAAAOpUe9LW86ZW1W_9tpoc9d4fJAi0";
 ?>
 
 
@@ -91,6 +92,11 @@ $krathus = $c->getAllKrathu();
                            <label for="id_card">รหัสบัตรประจำตัวประชาชน</label>
                            <input type="text" name="id_card" class="border-2 rounded-md px-6 py-2 w-full" maxlength="40">
                         </div>
+                        <!-- recaptcha -->
+                        <div class="mb-6 flex justify-center">
+                           <div class="g-recaptcha" data-sitekey="<?= $sitekey; ?>"></div>
+                        </div>
+                        <!-- end recaptcha -->
                         <div class="flex justify-end items-center gap-x-2 py-3 px-4 border-t">
                            <button type="button" class="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50" data-hs-overlay="#hs-vertically-centered-modal">
                               ยกเลิก
@@ -176,7 +182,21 @@ $krathus = $c->getAllKrathu();
 
 
 
-
+   <script>
+      const urlParams = new URLSearchParams(window.location.search);
+      if (urlParams.has('success')) {
+         // แสดง alert message ว่าการทำรายการสำเร็จ
+         alert("สร้างกระทู้สำเร็จแล้วค่ะ");
+      }
+      if (urlParams.has('c-err')) {
+         // แสดง alert message ว่าการทำรายการสำเร็จ
+         alert("กรุณายืนยันตัวตนด้วยค่ะ reCaptcha 🙏🏻");
+      }
+      if (urlParams.has('err')) {
+         // แสดง alert message ว่าการทำรายการสำเร็จ
+         alert("ไม่สามารถทำรายการได้ในขณะนี้กรุณาลองอีกครั้งค่ะ 🙏🏻");
+      }
+   </script>
 
 
    <script src="./node_modules/preline/dist/preline.js"></script>
@@ -220,6 +240,8 @@ $krathus = $c->getAllKrathu();
       updateTime();
    </script>
    <!-- end date time script -->
+
+   <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </body>
 
 </html>
