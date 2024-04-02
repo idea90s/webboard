@@ -5,15 +5,15 @@
 *,
 html,
 body {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+   box-sizing: border-box;
+   margin: 0;
+   padding: 0;
 }
 
 body {
-  background-image: url("../imgs/backgroud.jpg");
-  background-color: #eeeeee;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+   background-image: url("../imgs/backgroud.jpg");
+   background-color: #eeeeee;
+   background-size: cover;
+   background-position: center;
+   background-repeat: no-repeat;
 }

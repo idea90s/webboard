@@ -4,13 +4,11 @@ require_once('./db/db.php');
 if (isset($_GET['krathuId'])) {
    $krathu_id = $_GET['krathuId'];
    $krathu = $c->getKrathu($krathu_id);
-
    $comments = $c->getComments($krathu_id);
    // print_r($krathu);
 }
 
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -25,7 +23,6 @@ if (isset($_GET['krathuId'])) {
 </head>
 
 <body>
-
    <div class="m-6 mx-auto max-w-[60rem] h-screen space-y-4 p-3">
       <div class="flex justify-between">
          <div class="rounded-md border border-gray-300 bg-gradient-to-tr from-white via-slate-100 to-black/10 px-2 text-xs text-gray-500 py-1">เว็บบอร์ด</div>
@@ -36,7 +33,6 @@ if (isset($_GET['krathuId'])) {
          <h2 class="text-2xl font-bold">องค์การบริหารส่วนตำบลลาดน้ำเค็ม</h2>
          <p class="text-sm text-gray-500 text-center">ตำบลลาดน้ำเค็ม อำเภอผักไห่ จังหวัดพระนครศรีอยุธยา 13120</p>
       </div>
-
       <?php if (!empty($krathu_id)) : ?>
          <?php foreach ($krathu as $k => $v) : ?>
             <div class="rounded-md border border-gray-300 bg-gradient-to-r from-white via-slate-100 to-blue-300/20  p-6 shadow-md">
